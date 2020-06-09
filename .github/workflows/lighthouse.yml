@@ -4,6 +4,10 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
+      - with:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install && npm install -g @lhci/cli@0.4.x
