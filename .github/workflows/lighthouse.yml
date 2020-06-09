@@ -4,9 +4,10 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - with:
+      - name: Run lighthouse
+        with:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      - env:
+        env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
