@@ -1,2 +1,8 @@
-- name: Lighthouse Check
-  uses: foo-software/lighthouse-check-action@v1.0.14
+name: Lighthouse Web Performance
+on: [pull_request]
+jobs:
+  perf:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Lighthouse Check
+      uses: foo-software/lighthouse-check-action@v1.0.14
