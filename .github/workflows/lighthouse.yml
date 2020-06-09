@@ -8,6 +8,10 @@ jobs:
       - uses: actions/setup-node@v1
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.LHCI_GITHUB_TOKEN }}
+          TEST: ${{ secrets.LHCI_GITHUB_TOKEN }}
+      - run: echo '${{ secrets.LHCI_GITHUB_TOKEN }}'
+      - run: echo ${{ secrets.LHCI_GITHUB_TOKEN }}
+      - run: echo '::set-env name=LHCI_GITHUB_TOKEN::${{ secrets.LHCI_GITHUB_TOKEN }}'
       - run: npm install && npm install -g @lhci/cli@0.4.x
       - run: npm run build
       - run: lhci autorun --upload.target=temporary-public-storage
